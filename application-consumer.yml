@@ -1,0 +1,47 @@
+server:
+  port: 8084
+logging:
+  level:
+    root: info
+  pattern:
+    console: level-%level %msg %n
+
+spring:
+  profiles: dev
+  application:
+    name: second-consumer
+
+info:
+  name: second-consumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+#      defaultZone: http://localhost9100.zzq:9100/eureka,http://localhost9200.zzq:9200/eureka,http://localhost9000.zzq:9000/eureka
+feign:
+  hystrix:
+    enabled: true
+---
+server:
+  port: 8084
+logging:
+  level:
+    root: info
+  pattern:
+    console: level-%level %msg %n
+
+spring:
+  profiles: test
+  application:
+    name: second-consumer
+
+info:
+  name: second-consumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+#      defaultZone: http://localhost9100.zzq:9100/eureka,http://localhost9200.zzq:9200/eureka,http://localhost9000.zzq:9000/eureka
+feign:
+  hystrix:
+    enabled: true
